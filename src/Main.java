@@ -23,26 +23,10 @@ public static void mapDisp(Map<String,Integer> percents)
 
         //listDisp(toBeUsed);
         //mapDisp(percents);
-        //System.out.println(processing.getTopArtist(toBeUsed));
+        System.out.println("the artist with the most popular songs is :: " + processing.getTopArtists(toBeUsed));
 
 
 
 
     }
 }
-
-
-/* what needs to be done
-
-- read csv file
-- populate initial container
-- use streams to filter / do the following
-    -* find percentage of keys that make up top songs
-    -* perecentage of danceable vs non danceable songs
-    -* the top 3 reoccuring artsts
-- save information to collections
-
-- visually display the stats when found
-
-
- */

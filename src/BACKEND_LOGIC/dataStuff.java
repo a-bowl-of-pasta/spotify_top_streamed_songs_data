@@ -24,10 +24,11 @@ public class dataStuff {
         keyPercent.put("C", fixVals);
         return keyPercent;
     }
-    public String getTopArtist(List<SongData> songs)
+    public String getTopArtists(List<SongData> songs)
     {
         Map<String, Long> artistTally = songs.stream()
                 .collect(Collectors.groupingBy(SongData::getArtist,Collectors.counting()));
+
         String topArtist = "";
         int occurenceCount = 0;
         for (Map.Entry<String, Long> entry : artistTally.entrySet()) {
@@ -41,7 +42,7 @@ public class dataStuff {
 
     // =========== gen list with file data =========
     public List<SongData> readCsv() throws IOException {
-        List<SongData> validSongs = Files.lines(Paths.get("C:\\Users\\antoh\\java_intellijFiles\\my_labs\\lab3\\src\\mostStreamedSongs.csv"))
+        List<SongData> validSongs = Files.lines(Paths.get("src\\mostStreamedSongs.csv"))
                 .skip(1)
                 .map(line -> line.split(","))
                 .filter(data -> data.length >= 18)
