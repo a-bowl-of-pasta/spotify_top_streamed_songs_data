@@ -1,5 +1,12 @@
 package BACKEND_LOGIC;
-
+/*
+    this class makes working
+    with the streams easier
+    by letting me group the
+    information I want to keep
+    and get rid of the info
+    I don't want to keep
+ */
 public class SongData {
     String songKey = null;
     String modeType = null;
