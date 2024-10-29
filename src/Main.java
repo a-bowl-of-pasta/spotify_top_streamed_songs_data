@@ -23,6 +23,7 @@ public static void mapDisp(Map<String,Integer> percents)
 
         //listDisp(toBeUsed);
         //mapDisp(percents);
+        //System.out.println(processing.getTopArtist(toBeUsed));
 
 
 

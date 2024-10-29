@@ -24,7 +24,20 @@ public class dataStuff {
         keyPercent.put("C", fixVals);
         return keyPercent;
     }
-
+    public String getTopArtist(List<SongData> songs)
+    {
+        Map<String, Long> artistTally = songs.stream()
+                .collect(Collectors.groupingBy(SongData::getArtist,Collectors.counting()));
+        String topArtist = "";
+        int occurenceCount = 0;
+        for (Map.Entry<String, Long> entry : artistTally.entrySet()) {
+            if (entry.getValue() > occurenceCount) {
+                topArtist = entry.getKey();
+                occurenceCount = entry.getValue().intValue();
+            }
+        }
+        return (topArtist + " : " + occurenceCount + " occurrences");
+    }
 
     // =========== gen list with file data =========
     public List<SongData> readCsv() throws IOException {
