@@ -2,6 +2,7 @@ import BACKEND_LOGIC.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main
 {
@@ -10,11 +11,10 @@ public class Main
     {
         System.out.println(song.toString());
     }
-    public static void mapDisp(Map<String,Integer> percents)
+    public static <fe, se> void mapDisp(Map <fe,se> percents)
     {
-
-        for(Map.Entry<String, Integer> entry : percents.entrySet()) {
-         System.out.println(entry.getKey() + ": " + entry.getValue() +"%");
+        for(Map.Entry<fe, se> entry : percents.entrySet()) {
+         System.out.println(entry.getKey() + ": " + entry.getValue() );
         }
     }
     //=========== main meth ============
@@ -25,10 +25,33 @@ public class Main
         Map<String, Integer> percents = processing.genKeyPercent(toBeUsed);
 
         // === displaying method calls ===
+        System.out.println("""
+                :: Menu ::
+                0) print all the song objects
+                1) print the percentage each key makes up the top streamed
+                2) print the top artist and most popular song
+                3) print most popular level of dancability
+                """);
+        Scanner inp = new Scanner(System.in);
+        int choice = inp.nextInt();
 
-        //listDisp(toBeUsed);
-        //mapDisp(percents);
-        System.out.println("the artist with the most popular songs is :: " + processing.getTopArtists(toBeUsed));
+        switch(choice)
+        {
+            case 0:
+                listDisp(toBeUsed);
+                break;
+            case 1:
+                mapDisp(percents);
+                break;
+            case 2:
+                System.out.println("the artist with the most popular songs is :: " + processing.getTopArtists(toBeUsed));
+                break;
+            case 3:
+                System.out.println("the average most streamed songs have a dancability rate of :: " + processing.calcDancability(toBeUsed));
+                break;
+            default:
+                System.out.println("ERROR :: Invalid choice :: enter value 0-3");
+        }
 
     }
 }

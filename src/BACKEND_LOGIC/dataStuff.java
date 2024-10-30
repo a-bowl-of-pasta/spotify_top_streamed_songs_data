@@ -3,6 +3,7 @@ package BACKEND_LOGIC;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -50,7 +51,29 @@ public class dataStuff {
         }
         return (topArtist + " : " + occurenceCount + " occurrences");
     }
+    public String calcDancability(List<SongData> songs)
+    {
+        // level of dancability : average streams by level of dancability
+        Map<Integer, Double> streamsByPercent = songs.stream()
+                .collect(Collectors.groupingBy(SongData::getDancability,
+                        Collectors.averagingDouble(SongData::getStreamCount)));
 
+
+        double mostStreamed = 0;
+        int mvpercent = 0;
+
+        // finds what level of dancability has the highest average streams
+        for(Map.Entry<Integer, Double> entry : streamsByPercent.entrySet()){
+            if(entry.getValue() > mostStreamed)
+            {
+                mostStreamed = entry.getValue();
+                mvpercent = entry.getKey();
+            }
+        }
+        // formats it from scientific notation to a mor readable decimal
+        DecimalFormat df = new DecimalFormat("###,###.#");
+        return ("(" + mvpercent +"% : " + df.format(mostStreamed) + " aveStreams)");
+    }
     // =========== gen list with file data =========
     public List<SongData> readCsv() throws IOException {
 

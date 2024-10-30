@@ -22,7 +22,7 @@ public class SongData {
             this.songName = songName;
             artistName = artist;
             songKey = key;
-            modeType = mode;
+            modeType = mode; // i will use this later on down the line
             dancabilityRating = Integer.parseInt(dancability);
         }catch (Exception e)
         {
