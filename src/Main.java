@@ -47,7 +47,7 @@ public class Main
                 System.out.println("the artist with the most popular songs is :: " + processing.getTopArtists(toBeUsed));
                 break;
             case 3:
-                System.out.println("the average most streamed songs have a dancability rate of :: " + processing.calcDancability(toBeUsed));
+                System.out.println("the average song in 'the most streamed' has a  dancability rate of :: " + processing.calcDancability(toBeUsed));
                 break;
             default:
                 System.out.println("ERROR :: Invalid choice :: enter value 0-3");
