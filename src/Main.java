@@ -6,17 +6,7 @@ import java.util.Scanner;
 
 public class Main
 {
-    //========== data displays ===========
-    public static void listDisp(List<SongData> song)
-    {
-        System.out.println(song.toString());
-    }
-    public static <fe, se> void mapDisp(Map <fe,se> percents)
-    {
-        for(Map.Entry<fe, se> entry : percents.entrySet()) {
-         System.out.println(entry.getKey() + ": " + entry.getValue() );
-        }
-    }
+
     //=========== main meth ============
     public static void main(String[] args) throws IOException {
         // === getting the data ===
@@ -38,10 +28,10 @@ public class Main
         switch(choice)
         {
             case 0:
-                listDisp(toBeUsed);
+                processing.listDisp(toBeUsed);
                 break;
             case 1:
-                mapDisp(percents);
+                processing.mapDisp(percents);
                 break;
             case 2:
                 System.out.println("the artist with the most popular songs is :: " + processing.getTopArtists(toBeUsed));

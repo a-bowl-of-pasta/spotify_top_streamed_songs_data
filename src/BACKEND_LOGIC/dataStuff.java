@@ -74,6 +74,19 @@ public class dataStuff {
         DecimalFormat df = new DecimalFormat("###,###.#");
         return ("(" + mvpercent +"% : " + df.format(mostStreamed) + " aveStreams)");
     }
+
+    //========== data displays ===========
+    public void listDisp(List<SongData> song)
+    {
+        System.out.println(song.toString());
+    }
+    public <fe, se> void mapDisp(Map <fe,se> percents)
+    {
+        for(Map.Entry<fe, se> entry : percents.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue() );
+        }
+    }
+
     // =========== gen list with file data =========
     public List<SongData> readCsv() throws IOException {
 

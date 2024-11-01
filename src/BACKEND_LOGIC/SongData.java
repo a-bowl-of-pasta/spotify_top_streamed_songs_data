@@ -38,6 +38,7 @@ public class SongData {
     public String getKey(){return songKey;}
     public String getMode(){return modeType;}
     public String getArtist(){return artistName;}
+    public String getSongName(){return songName;}
     public int getDancability(){return dancabilityRating;}
     public double getStreamCount(){return streamCount;}
     public boolean isEmpty(){
