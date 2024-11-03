@@ -1,1 +1,2 @@
-* needs gui (I really hate making guis)
+* working on GUI
+* Console version works well
